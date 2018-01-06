@@ -8,9 +8,20 @@ var game_file_list = [
 	"libs/modules/res/res.js",
 	"libs/modules/tween/tween.js",
 	"libs/modules/socket/socket.js",
+	"libs/modules/eui/eui.js",
 	"polyfill/promise.js",
-	"bin-debug/LoadingUI.js",
+	"bin-debug/modules/core/ui/UIBase.js",
+	"bin-debug/modules/core/ui/DlgUI.js",
+	"bin-debug/modules/core/ui/UIManager.js",
+	"bin-debug/modules/core/utils/Utils.js",
+	"bin-debug/modules/core/ui/layer/MenuLayer.js",
+	"bin-debug/modules/core/ui/layer/TopLayer.js",
+	"bin-debug/modules/core/ui/layer/DlgLayer.js",
 	"bin-debug/Main.js",
+	"bin-debug/modules/core/ui/layer/GuideLayer.js",
+	"bin-debug/modules/core/ui/layer/MainLayer.js",
+	"bin-debug/modules/loading/LoadingUI.js",
+	"bin-debug/modules/core/ui/SpriteUIBase.js",
 	//----auto game_file_list end----
 ];
 

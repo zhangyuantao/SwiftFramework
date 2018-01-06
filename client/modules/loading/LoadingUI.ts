@@ -26,26 +26,71 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
-
-class LoadingUI extends egret.Sprite {
-
-    public constructor() {
-        super();
-        this.createView();
-    }
-
+import UIBase = Core.UI.UIBase;
+import DlgUI = Core.UI.DlgUI;
+class LoadingUI extends DlgUI {
     private textField:egret.TextField;
 
-    private createView():void {
+    init() {
+        super.init();
+
+        let self = this; let topMask = new egret.Shape();
+        topMask.graphics.beginFill(0x000000, 0.6);
+        topMask.graphics.drawRect(0, 0, uiManager.stageWidth, uiManager.stageHeight);
+        topMask.graphics.endFill();
+        this.addChild(topMask);
+
+        // 加载进度
         this.textField = new egret.TextField();
         this.addChild(this.textField);
-        this.textField.y = 300;
-        this.textField.width = 480;
+        this.textField.width = uiManager.stageWidth;
         this.textField.height = 100;
+        this.textField.y = uiManager.stageHeight >> 1;
         this.textField.textAlign = "center";
     }
 
-    public setProgress(current:number, total:number):void {
+    setProgress(current:number, total:number):void {
         this.textField.text = `Loading...${current}/${total}`;
+    }
+
+    loadCompleted(){
+        let sky = Utils.createBitmapByName("bg_jpg");
+        this.addChild(sky);
+        let stageW = uiManager.stageWidth;
+        let stageH = uiManager.stageHeight;
+        sky.width = stageW;
+        sky.height = stageH;
+
+        let topMask = new egret.Shape();
+        topMask.graphics.beginFill(0x000000, 0.5);
+        topMask.graphics.drawRect(0, 0, stageW, 172);
+        topMask.graphics.endFill();
+        topMask.y = 33;
+        this.addChild(topMask);
+
+        let icon = Utils.createBitmapByName("egret_icon_png");
+        this.addChild(icon);
+        icon.x = 26;
+        icon.y = 33;
+
+        let line = new egret.Shape();
+        line.graphics.lineStyle(2, 0xffffff);
+        line.graphics.moveTo(0, 0);
+        line.graphics.lineTo(0, 117);
+        line.graphics.endFill();
+        line.x = 172;
+        line.y = 61;
+        this.addChild(line);
+
+
+        let colorLabel = new egret.TextField();
+        colorLabel.textColor = 0xffffff;
+        colorLabel.width = stageW - 172;
+        colorLabel.textAlign = "center";
+        colorLabel.text = "Hello Egret";
+        colorLabel.size = 24;
+        colorLabel.x = 172;
+        colorLabel.y = 80;
+        this.addChild(colorLabel);
     }
 }

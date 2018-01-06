@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Egret</title>
+    <title>SwiftFramework</title>
     <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="full-screen" content="true"/>
@@ -28,6 +28,7 @@
 	<script egret="lib" src="libs/modules/res/res.js" src-release="libs/modules/res/res.min.js"></script>
 	<script egret="lib" src="libs/modules/tween/tween.js" src-release="libs/modules/tween/tween.min.js"></script>
 	<script egret="lib" src="libs/modules/socket/socket.js" src-release="libs/modules/socket/socket.min.js"></script>
+	<script egret="lib" src="libs/modules/eui/eui.js" src-release="libs/modules/eui/eui.min.js"></script>
 	<!--modules_files_end-->
 
     <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
@@ -37,8 +38,18 @@
 
     <!--这个标签会被替换为项目中所有的 javascript 文件。删除 game_files 标签后，项目文件加载列表将不会变化，请谨慎操作！-->
     <!--game_files_start-->
-	<script egret="game" src="bin-debug/LoadingUI.js"></script>
+	<script egret="game" src="bin-debug/modules/core/ui/UIBase.js"></script>
+	<script egret="game" src="bin-debug/modules/core/ui/DlgUI.js"></script>
+	<script egret="game" src="bin-debug/modules/core/ui/UIManager.js"></script>
+	<script egret="game" src="bin-debug/modules/core/utils/Utils.js"></script>
+	<script egret="game" src="bin-debug/modules/core/ui/layer/MenuLayer.js"></script>
+	<script egret="game" src="bin-debug/modules/core/ui/layer/TopLayer.js"></script>
+	<script egret="game" src="bin-debug/modules/core/ui/layer/DlgLayer.js"></script>
 	<script egret="game" src="bin-debug/Main.js"></script>
+	<script egret="game" src="bin-debug/modules/core/ui/layer/GuideLayer.js"></script>
+	<script egret="game" src="bin-debug/modules/core/ui/layer/MainLayer.js"></script>
+	<script egret="game" src="bin-debug/modules/loading/LoadingUI.js"></script>
+	<script egret="game" src="bin-debug/modules/core/ui/SpriteUIBase.js"></script>
 	<!--game_files_end-->
 </head>
 <body>
