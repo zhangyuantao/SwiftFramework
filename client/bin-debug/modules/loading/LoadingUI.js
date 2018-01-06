@@ -35,6 +35,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 //
 //////////////////////////////////////////////////////////////////////////////////////
 var UIBase = Core.UI.UIBase;
+var SpriteUIBase = Core.UI.SpriteUIBase;
 var DlgUI = Core.UI.DlgUI;
 var LoadingUI = (function (_super) {
     __extends(LoadingUI, _super);

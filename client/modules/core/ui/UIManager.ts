@@ -51,6 +51,9 @@ namespace Core.UI {
             if (ui instanceof DlgUI){
                 self.m_dlgLayer.addChild(ui);
             }
+            else if (ui instanceof SpriteUIBase){
+                self.m_mainLayer.addChild(ui);
+            }
 
             if (! self.uiMap[name]) {
                 ui.key = name;
@@ -64,11 +67,13 @@ namespace Core.UI {
             let ui = self.uiMap[name];
             if (! ui) return;
 
-            if (ui instanceof DlgUI){
+            if (ui instanceof DlgUI)
                 self.m_dlgLayer.removeChild(ui);
-                delete self.uiMap[name];
-                ui = null;
-            }
+            else if (ui instanceof SpriteUIBase)
+                self.m_mainLayer.addChild(ui);
+
+            delete self.uiMap[name];
+            ui = null;
         }
 
         // 获取界面

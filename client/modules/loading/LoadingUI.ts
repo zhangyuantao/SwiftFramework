@@ -27,8 +27,9 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 import UIBase = Core.UI.UIBase;
+import SpriteUIBase = Core.UI.SpriteUIBase;
 import DlgUI = Core.UI.DlgUI;
-class LoadingUI extends DlgUI {
+class LoadingUI extends DlgUI{
     private textField:egret.TextField;
 
     init() {

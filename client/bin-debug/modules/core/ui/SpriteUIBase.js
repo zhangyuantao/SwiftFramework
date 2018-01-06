@@ -20,14 +20,29 @@ var Core;
                 var _this = _super.call(this) || this;
                 var self = _this;
                 self.data = data;
-                self.enter();
+                self.init();
+                self.addEventListener(egret.Event.ADDED_TO_STAGE, self.onAddToStage, self);
+                self.addEventListener(egret.Event.REMOVED_FROM_STAGE, self.onDestroy, self);
                 return _this;
             }
             SpriteUIBase.show = function (data) {
                 var self = this;
-                var view = new self(data);
-                var className = view.__proto__.__class__;
-                return view;
+                var className = self.name;
+                var ui = UI.uiManager.get(className);
+                if (ui) {
+                    ui.show();
+                }
+                else {
+                    ui = new self();
+                    // 添加到UI管理
+                    UI.uiManager.add(className, ui);
+                }
+                return ui;
+            };
+            SpriteUIBase.prototype.init = function () { };
+            SpriteUIBase.prototype.onAddToStage = function () { };
+            // 销毁界面
+            SpriteUIBase.prototype.onDestroy = function () {
             };
             // 进入界面
             SpriteUIBase.prototype.enter = function () {
@@ -38,12 +53,9 @@ var Core;
             // 关闭界面
             SpriteUIBase.prototype.close = function () {
             };
-            // 销毁界面
-            SpriteUIBase.prototype.destroy = function () {
-            };
             return SpriteUIBase;
         }(egret.Sprite));
         UI.SpriteUIBase = SpriteUIBase;
-        __reflect(SpriteUIBase.prototype, "Core.UI.SpriteUIBase");
+        __reflect(SpriteUIBase.prototype, "Core.UI.SpriteUIBase", ["Core.UI.IUI"]);
     })(UI = Core.UI || (Core.UI = {}));
 })(Core || (Core = {}));

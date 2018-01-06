@@ -4,15 +4,19 @@
  * 需要设置皮肤
  */
 namespace Core.UI {
-    export class UIBase extends eui.Component{
+    export class UIBase extends eui.Component implements IUI{
         key:string;
         data:any;
 
         constructor(data:any) {
             super();
             let self = this;
+            self.skinName = self.key + 'Skin';   // 设置皮肤
             self.data = data;
             self.init();
+
+            self.addEventListener(egret.Event.ADDED_TO_STAGE, self.onAddToStage, self);
+            self.addEventListener(egret.Event.REMOVED_FROM_STAGE, self.onDestroy, self);
         }
 
         static show(data?:any) {
@@ -38,6 +42,8 @@ namespace Core.UI {
 
         }
 
+        onAddToStage(){}
+
         // 显示界面
         show(){
             let self = this;
@@ -52,18 +58,15 @@ namespace Core.UI {
                 self.visible = false;
 
             if (destroy)
-                self.destroy();
+                uiManager.remove(self.key);
         }
 
         // 销毁界面
-        private destroy() {
+        onDestroy() {
             let self = this;
 
             // 清除数据缓存
             self.data = null;
-
-            // 移除UI
-            uiManager.remove(self.key);
         }
     }
 }

@@ -56,6 +56,9 @@ var Core;
                 if (ui instanceof UI.DlgUI) {
                     self.m_dlgLayer.addChild(ui);
                 }
+                else if (ui instanceof UI.SpriteUIBase) {
+                    self.m_mainLayer.addChild(ui);
+                }
                 if (!self.uiMap[name]) {
                     ui.key = name;
                     self.uiMap[name] = ui;
@@ -67,11 +70,12 @@ var Core;
                 var ui = self.uiMap[name];
                 if (!ui)
                     return;
-                if (ui instanceof UI.DlgUI) {
+                if (ui instanceof UI.DlgUI)
                     self.m_dlgLayer.removeChild(ui);
-                    delete self.uiMap[name];
-                    ui = null;
-                }
+                else if (ui instanceof UI.SpriteUIBase)
+                    self.m_mainLayer.addChild(ui);
+                delete self.uiMap[name];
+                ui = null;
             };
             // 获取界面
             UIManager.prototype.get = function (name) {

@@ -12,16 +12,17 @@ var game_file_list = [
 	"polyfill/promise.js",
 	"bin-debug/modules/core/ui/UIBase.js",
 	"bin-debug/modules/core/ui/DlgUI.js",
+	"bin-debug/modules/core/ui/SpriteUIBase.js",
 	"bin-debug/modules/core/ui/UIManager.js",
 	"bin-debug/modules/core/utils/Utils.js",
 	"bin-debug/modules/core/ui/layer/MenuLayer.js",
-	"bin-debug/modules/core/ui/layer/TopLayer.js",
-	"bin-debug/modules/core/ui/layer/DlgLayer.js",
+	"bin-debug/modules/core/ui/IUI.js",
 	"bin-debug/Main.js",
+	"bin-debug/modules/core/ui/layer/DlgLayer.js",
 	"bin-debug/modules/core/ui/layer/GuideLayer.js",
 	"bin-debug/modules/core/ui/layer/MainLayer.js",
 	"bin-debug/modules/loading/LoadingUI.js",
-	"bin-debug/modules/core/ui/SpriteUIBase.js",
+	"bin-debug/modules/core/ui/layer/TopLayer.js",
 	//----auto game_file_list end----
 ];
 

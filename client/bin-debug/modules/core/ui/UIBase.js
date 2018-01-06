@@ -20,8 +20,11 @@ var Core;
             function UIBase(data) {
                 var _this = _super.call(this) || this;
                 var self = _this;
+                self.skinName = self.key + 'Skin'; // 设置皮肤
                 self.data = data;
                 self.init();
+                self.addEventListener(egret.Event.ADDED_TO_STAGE, self.onAddToStage, self);
+                self.addEventListener(egret.Event.REMOVED_FROM_STAGE, self.onDestroy, self);
                 return _this;
             }
             UIBase.show = function (data) {
@@ -41,6 +44,7 @@ var Core;
             // 首次初始化
             UIBase.prototype.init = function () {
             };
+            UIBase.prototype.onAddToStage = function () { };
             // 显示界面
             UIBase.prototype.show = function () {
                 var self = this;
@@ -54,19 +58,17 @@ var Core;
                 if (self.visible)
                     self.visible = false;
                 if (destroy)
-                    self.destroy();
+                    UI.uiManager.remove(self.key);
             };
             // 销毁界面
-            UIBase.prototype.destroy = function () {
+            UIBase.prototype.onDestroy = function () {
                 var self = this;
                 // 清除数据缓存
                 self.data = null;
-                // 移除UI
-                UI.uiManager.remove(self.key);
             };
             return UIBase;
         }(eui.Component));
         UI.UIBase = UIBase;
-        __reflect(UIBase.prototype, "Core.UI.UIBase");
+        __reflect(UIBase.prototype, "Core.UI.UIBase", ["Core.UI.IUI"]);
     })(UI = Core.UI || (Core.UI = {}));
 })(Core || (Core = {}));

@@ -3,21 +3,45 @@
  * 继承egret.Sprite界面基类
  */
 namespace Core.UI {
-    export class SpriteUIBase extends egret.Sprite{
+    export class SpriteUIBase extends egret.Sprite implements IUI{
+        key:string;
         data:any;
 
         constructor(data:any) {
             super();
             let self = this;
             self.data = data;
-            self.enter();
+            self.init();
+
+            self.addEventListener(egret.Event.ADDED_TO_STAGE, self.onAddToStage, self);
+            self.addEventListener(egret.Event.REMOVED_FROM_STAGE, self.onDestroy, self);
         }
 
         static show(data?:any) {
-            let self = this;
-            let view:any = new self(data);
-            let className = view.__proto__.__class__;
-            return view;
+            let self:any = this;
+            let className = self.name;
+            let ui:any = uiManager.get(className);
+
+            if (ui){
+                ui.show();
+            }
+            else {
+                ui = new self();
+
+                // 添加到UI管理
+                uiManager.add(className, ui);
+            }
+
+            return ui;
+        }
+
+        init(){}
+
+        onAddToStage(){}
+
+        // 销毁界面
+        onDestroy() {
+
         }
 
         // 进入界面
@@ -32,11 +56,6 @@ namespace Core.UI {
 
         // 关闭界面
         close() {
-
-        }
-
-        // 销毁界面
-        destroy() {
 
         }
     }
