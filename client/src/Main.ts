@@ -21,6 +21,9 @@ class Main extends egret.DisplayObjectContainer {
         //initiate Resource loading library
         RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         RES.loadConfig("resource/default.res.json", "resource/");
+
+        // 启用主题
+        new eui.Theme("resource/default.thm.json", this.stage);
     }
 
     /**
