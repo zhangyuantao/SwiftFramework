@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LoginUISkin" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect left="0" right="0" top="-1" bottom="1"/>
+	<e:TextInput id="iptAccount" width="180" height="40" y="600" x="246" textColor="0x000000" prompt="account"/>
+	<e:TextInput id="iptPwd" width="180" height="40" y="666" x="246" textColor="0x000000" prompt="password"/>
+	<e:Label text="Account:" x="112" y="603" textAlign="right"/>
+	<e:Label text="Password:" x="92" y="668" textAlign="right"/>
+	<e:Button label="Login" y="837" horizontalCenter="0">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="common_btn_green_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+</e:Skin>

@@ -11,7 +11,7 @@ namespace Core.UI {
         constructor(data:any) {
             super();
             let self = this;
-            self.skinName = Utils.Utils.getClassName(self) + 'Skin';   // 设置皮肤
+            //self.skinName = Utils.Utils.getClassName(self) + 'Skin';   // 设置皮肤
             self.data = data;
 
             self.init();

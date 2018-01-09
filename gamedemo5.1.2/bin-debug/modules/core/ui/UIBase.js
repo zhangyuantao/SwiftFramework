@@ -22,7 +22,7 @@ var Core;
             function UIBase(data) {
                 var _this = _super.call(this) || this;
                 var self = _this;
-                self.skinName = Core.Utils.Utils.getClassName(self) + 'Skin'; // 设置皮肤
+                //self.skinName = Utils.Utils.getClassName(self) + 'Skin';   // 设置皮肤
                 self.data = data;
                 self.init();
                 self.addEventListener(egret.Event.ADDED_TO_STAGE, self.onAddToStage, self);
