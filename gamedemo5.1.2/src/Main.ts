@@ -79,6 +79,7 @@ class Main extends egret.DisplayObjectContainer {
             await RES.loadGroup("preload", 0);
             await this.loadTheme(); // 加载皮肤主题
             let loadingView = LoadingUI.show();
+            await Promise.
             loadingView.close();
             LoginUI.show();
         }
